@@ -1,0 +1,15 @@
+# CODEOWNERS — atlax-360-ai-suite/ai-suite-platform
+#
+# Cualquier PR a este repo requiere review de al menos un owner activo.
+# Branch protection en main lo aplica.
+#
+# Cuando se incorporen más owners de la suite (≥2 maintainers), distribuir
+# la propiedad por área:
+#  - docs/SPEC.md           → todos los owners (decisión arquitectónica)
+#  - docs/adr/              → todos los owners (decisión inmutable)
+#  - .github/               → maintainers de gobernanza
+#  - docs/HANDOFF-*.md      → autor del cambio en curso
+#
+# Por ahora un único owner.
+
+* @joserragonzalez
