@@ -10,6 +10,33 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [v0.4.1] — 2026-05-11
+
+### Added
+
+- `docs/adr/` con 10 ADRs Michael Nygard formalizando las decisiones D-001..D-010:
+  - ADR-0001 Consent Screen y OAuth Clients
+  - ADR-0002 Subdominios `<app>.atlax360.ai`
+  - ADR-0003 Bun runtime obligatorio
+  - ADR-0004 Conventional Commits + Squash merge
+  - ADR-0005 Workload Identity Federation GCP↔GitHub
+  - ADR-0006 `vercel.ts` sobre `vercel.json`
+  - ADR-0007 Vercel AI Gateway por defecto
+  - ADR-0008 NO Edge Functions, SÍ Fluid Compute
+  - ADR-0009 `atlax360.ai` dominio canónico
+  - ADR-0010 Repo dedicado como home del SPEC
+- `docs/adr/README.md` con índice + formato canónico Michael Nygard + reglas de inmutabilidad.
+
+### Changed
+
+- `docs/SPEC.md` §10 ahora incluye columna "ADR" con link relativo a cada ADR-NNNN.
+- Header del SPEC bumpeado a v0.4.1; footer actualizado.
+
+### Notes
+
+- Patch version (no minor) porque NO se introducen decisiones nuevas — solo formaliza las existentes con el rigor Michael Nygard.
+- Los ADRs son inmutables: cambios futuros crean ADR nuevo con `Supersedes:`, no modifican el viejo.
+
 ## [v0.4.0] — 2026-05-10
 
 ### Added
@@ -68,7 +95,8 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ---
 
-[Unreleased]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.4.1...HEAD
+[v0.4.1]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.4.0...v0.4.1
 [v0.4.0]: https://github.com/atlax-360-ai-suite/ai-suite-platform/releases/tag/v0.4.0
 [v0.3]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.2...v0.3
 [v0.2]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.1...v0.2
