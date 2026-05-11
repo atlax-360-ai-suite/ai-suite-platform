@@ -10,6 +10,24 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [v0.5] — 2026-05-11
+
+### Added
+
+- D-011 nueva: email transaccional interno vía Gmail API + Vercel OIDC + WIF + DWD.
+- §9.6 nueva: patrón canónico para email transaccional en apps internas. Sin SendGrid / Resend para destinatarios `@atlax360.com`.
+- ADR-0011: justificación técnica + flujo de autenticación de 3 leg (WIF → SA impersonation → DWD JWT bearer) + criterios de migración a proveedor externo.
+
+### Changed
+
+- Header del SPEC bumpeado a v0.5; §10 catálogo con D-011 añadida.
+
+### Notes
+
+- Minor version: nueva decisión D-011 y nuevo invariante §9.6.
+- Reference implementation: `kairos/packages/email/` — primera adopción.
+- Cuando una 2ª app de la suite adopte el patrón, extraer a `@atlax/email` (repo dedicado, fuera de `ai-suite-platform` que es solo specs).
+
 ## [v0.4.1] — 2026-05-11
 
 ### Added
@@ -95,7 +113,8 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ---
 
-[Unreleased]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.5...HEAD
+[v0.5]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.4.1...v0.5
 [v0.4.1]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.4.0...v0.4.1
 [v0.4.0]: https://github.com/atlax-360-ai-suite/ai-suite-platform/releases/tag/v0.4.0
 [v0.3]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.2...v0.3

@@ -1,6 +1,6 @@
 # Atlax 360 AI Suite — Patrón "Shared Platform"
 
-- **Status**: Accepted v0.4.1
+- **Status**: Accepted v0.5
 - **Owner**: jgcalvo@atlax360.com
 - **Date**: 2026-05-09 | **Última revisión**: 2026-05-11
 - **Scope**: cross-project (`atlax-ai`)
@@ -17,6 +17,7 @@
 | v0.3    | 2026-05-09 | Corrección dominio: `atlax360.ai` canónico (no `atlax.ai`). D-002 actualizada a Accepted. D-009 nueva.               |
 | v0.4    | 2026-05-10 | Movido a repo dedicado `atlax-360-ai-suite/ai-suite-platform`. Ya no es host transitorio en Kairos. §14 actualizado. |
 | v0.4.1  | 2026-05-11 | ADRs Michael Nygard ADR-0001..ADR-0010 formalizando D-001..D-010 en `docs/adr/`. §10 con columna ADR.                |
+| v0.5    | 2026-05-11 | D-011 nueva: email transaccional interno vía Gmail API + Vercel OIDC + WIF + DWD. §9.6 nueva. ADR-0011.              |
 
 ---
 
@@ -369,6 +370,19 @@ Estos invariantes aplican a **toda app** de la suite, sea cual sea el stack:
 - Constants en `@<app>/types`, nunca strings literales repetidas en 2+ archivos
 - Tests co-located en `__tests__/`
 
+### 9.6 Email transaccional interno
+
+Para apps cuyos destinatarios son `@atlax360.com` (apps internas Atlax) — patrón canónico:
+
+- **Gmail API + Service Account + Domain-Wide Delegation**, autenticado vía **Vercel OIDC → Workload Identity Federation → SA Impersonation**. Cero credenciales long-lived (ver ADR-0011).
+- **Buzón funcional dedicado por app**: `<app>-bot@atlax360.com` (`kairos-bot@`, `harvest-bot@`, etc.).
+- **Service Account por app**: `<app>-mailer@atlax-ai-pro.iam.gserviceaccount.com`.
+- **Scope único** `https://www.googleapis.com/auth/gmail.send`. Sin scopes adicionales.
+- **DKIM/SPF/DMARC heredados** del dominio `atlax360.com` ya autenticado en Workspace.
+- **NO SendGrid / Resend / Postmark** para destinatarios internos: es sobre-arquitectura (paga ~$240/año + DPA + 4º vendor para algo que Workspace entrega gratis con mejor auditabilidad).
+
+Cuándo migrar a proveedor transaccional externo: ver ADR-0011 §"When to migrate to a transactional provider".
+
 ## 10. Decisiones tomadas (catálogo)
 
 Cada decisión arquitectónica relevante de la suite va con un ID `D-XXX` y un ADR Michael Nygard detallado en [`docs/adr/`](./adr/).
@@ -385,6 +399,7 @@ Cada decisión arquitectónica relevante de la suite va con un ID `D-XXX` y un A
 | D-008 | NO Edge Functions, SÍ Fluid Compute                                                   | Accepted                 | 2026-02    | [ADR-0008](./adr/0008-no-edge-functions-fluid-compute.md) |
 | D-009 | `atlax360.ai` es el dominio canónico de la suite AI; `atlax.ai` no pertenece al grupo | Accepted (v0.3)          | 2026-05-09 | [ADR-0009](./adr/0009-dominio-atlax360-ai-canonico.md)    |
 | D-010 | Repo dedicado `atlax-360-ai-suite/ai-suite-platform` como home del doc canónico       | Accepted                 | 2026-05-10 | [ADR-0010](./adr/0010-repo-dedicado-ai-suite-platform.md) |
+| D-011 | Email transaccional interno vía Gmail API + Vercel OIDC + WIF + DWD (no SendGrid)     | Proposed                 | 2026-05-11 | [ADR-0011](./adr/0011-email-transaccional-interno.md)     |
 
 ## 11. Estado actual de adopción (snapshot 2026-05-10)
 
