@@ -17,11 +17,13 @@ Estoy arrancando una sesión dedicada al trabajo cross-project del documento "At
 2. `~/work/ai-suite-platform/docs/SPEC.md` — documento canónico v0.4
 3. `~/work/ai-suite-platform/README.md` — punto de entrada del repo
 
-**Estado actual (snapshot 2026-05-10):**
+**Estado actual (snapshot 2026-05-11):**
 
-- v0.4 publicada — repo dedicado activo, ya no host transitorio en Kairos
-- Kairos ✅ y bridge ✅ — 2 adopciones formales que triggerearon el repo dedicado
-- Pilotaje bridge PRO con 13 devs arrancando 2026-05-11
+- v0.4.1 publicada — ADRs Michael Nygard formalizando D-001..D-010 en `docs/adr/`
+- CI activo: markdown lint + link check pasan en main (PR #3 mergeado)
+- Branch protection en main: force-push y delete bloqueados, PR review requerida
+- Tags v0.4.0 y v0.4.1 publicados como GitHub Releases
+- Bridge descontaminado: JSDoc de `naming-convention.test.ts` apunta al repo canónico
 - Pendiente: validación harvest, atlax-claude-dashboard, atlax-observatorios
 
 **Posibles tareas:**
