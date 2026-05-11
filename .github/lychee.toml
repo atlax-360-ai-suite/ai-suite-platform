@@ -11,6 +11,8 @@ exclude = [
   "template-ai-app",
   # Local filesystem references
   "~/work/",
+  # Private/historical repos — accessible to team members but not lychee
+  "https://github.com/joserragonzalez/kairos",
 ]
 
 exclude_path = ["CHANGELOG.md"]
