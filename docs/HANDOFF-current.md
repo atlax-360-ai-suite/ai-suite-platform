@@ -1,7 +1,7 @@
-# Handoff — Atlax 360 AI Suite Shared Platform v0.4.1
+# Handoff — Atlax 360 AI Suite Shared Platform v0.6
 
 **Fecha:** 2026-05-11
-**Status:** v0.4.1 — ADRs formalizados, CI activo, branch protection on
+**Status:** v0.6 — ADR-0012 `@atlax/auth` postponed
 **Owner:** jgcalvo@atlax360.com
 **Documento canónico:** `docs/SPEC.md` (este repo)
 **Scope:** cross-project — kairos, atlax-langfuse-bridge, atlax-claude-dashboard, atlax-observatorios, harvest, futuras apps
@@ -16,6 +16,8 @@
 4. **Branch protection** activada en `main`: force-push y delete bloqueados; PR review requerida
 5. **Tags y releases**: `v0.4.0` (retroactivo, commit inicial) y `v0.4.1` (ADRs) creados y publicados como GitHub Releases
 6. **CI** (PR #3): `docs-ci.yml` con markdownlint-cli2 + lychee link checker; `.markdownlint.json`; `.github/lychee.toml` — ambos checks pasan en main
+7. **ADR-0011** (PR #5): D-011 email transaccional interno vía Gmail API + Vercel OIDC + WIF + DWD. SPEC bumpeado a v0.5.
+8. **ADR-0012** (PR #6 — esta PR): D-012 `@atlax/auth` postponed tras auditoría de 4 proyectos. SPEC bumpeado a v0.6.
 
 ---
 
@@ -47,8 +49,8 @@
 
 | Componente        | Estado                                                            |
 | ----------------- | ----------------------------------------------------------------- |
-| SPEC              | v0.4.1 — `docs/SPEC.md`                                           |
-| ADRs              | `docs/adr/` — 10 ADRs (0001..0010), todos con Scope tag           |
+| SPEC              | v0.6 — `docs/SPEC.md`                                             |
+| ADRs              | `docs/adr/` — 12 ADRs (0001..0012), todos con Scope tag           |
 | CI                | ✅ markdown lint + link check activos en PRs y main               |
 | Branch protection | ✅ main protegida — no force-push, no delete, PR review requerida |
 | Tags / Releases   | ✅ v0.4.0, v0.4.1 en GitHub Releases                              |
@@ -57,20 +59,22 @@
 
 ---
 
-## Decisiones catalogadas (D-001..D-010)
+## Decisiones catalogadas (D-001..D-012)
 
-| ID    | Decisión                                                       | Status                   |
-| ----- | -------------------------------------------------------------- | ------------------------ |
-| D-001 | Una sola Consent Screen "Atlax 360 AI Suite", N OAuth Clients  | Proposed                 |
-| D-002 | Subdominios `<app>.atlax360.ai` canónicos                      | Accepted                 |
-| D-003 | Bun como runtime obligatorio                                   | Accepted (cross-project) |
-| D-004 | Conventional Commits + Squash merge                            | Accepted (cross-project) |
-| D-005 | Workload Identity Federation GCP↔GitHub                        | Proposed                 |
-| D-006 | `vercel.ts` sobre `vercel.json`                                | Proposed                 |
-| D-007 | Vercel AI Gateway por defecto                                  | Proposed                 |
-| D-008 | NO Edge Functions, SÍ Fluid Compute                            | Accepted                 |
-| D-009 | `atlax360.ai` canónico; `atlax.ai` NO pertenece al grupo       | Accepted (v0.3)          |
-| D-010 | Repo dedicado `atlax-360-ai-suite/ai-suite-platform` como home | Accepted (v0.4)          |
+| ID    | Decisión                                                                          | Status                   |
+| ----- | --------------------------------------------------------------------------------- | ------------------------ |
+| D-001 | Una sola Consent Screen "Atlax 360 AI Suite", N OAuth Clients                     | Proposed                 |
+| D-002 | Subdominios `<app>.atlax360.ai` canónicos                                         | Accepted                 |
+| D-003 | Bun como runtime obligatorio                                                      | Accepted (cross-project) |
+| D-004 | Conventional Commits + Squash merge                                               | Accepted (cross-project) |
+| D-005 | Workload Identity Federation GCP↔GitHub                                           | Proposed                 |
+| D-006 | `vercel.ts` sobre `vercel.json`                                                   | Proposed                 |
+| D-007 | Vercel AI Gateway por defecto                                                     | Proposed                 |
+| D-008 | NO Edge Functions, SÍ Fluid Compute                                               | Accepted                 |
+| D-009 | `atlax360.ai` canónico; `atlax.ai` NO pertenece al grupo                          | Accepted (v0.3)          |
+| D-010 | Repo dedicado `atlax-360-ai-suite/ai-suite-platform` como home                    | Accepted (v0.4)          |
+| D-011 | Email transaccional interno vía Gmail API + Vercel OIDC + WIF + DWD (no SendGrid) | Proposed                 |
+| D-012 | `@atlax/auth` postponed — cada app mantiene su auth hasta criterios reactivación  | Proposed                 |
 
 ---
 
@@ -88,18 +92,19 @@ BG-02 y BG-03 fueron descartados (⊘ N/A para edge-tooling).
 
 ## Trabajo pendiente — Fase 1
 
-- [ ] Validación harvest contra v0.4 (cuando termine sprint en curso)
-- [ ] Validación atlax-observatorios contra v0.4
+- [ ] Validación harvest contra v0.6 (cuando termine sprint en curso)
+- [ ] Validación atlax-observatorios contra v0.6
 - [ ] Decisión atlax-claude-dashboard: Keycloak vs Google OAuth
 - [ ] Bridge: cerrar BG-01/04/05 según prioridad
 - [ ] Crear OAuth Client "Kairos" en GCP
+- ✅ ~~Decisión `@atlax/auth`~~ — cerrada vía ADR-0012 (postponed); reabrir con ADR-0013+ cuando se cumplan criterios de reactivación
 
 ---
 
 ## Cómo continuar trabajo en este repo en otra sesión
 
 1. Lee este HANDOFF completo
-2. Lee `docs/SPEC.md` v0.4 — el documento canónico
+2. Lee `docs/SPEC.md` v0.6 — el documento canónico
 3. Lee `docs/PROMPT-next-session.md` para el prompt de arranque
 
 ### Tareas válidas en una sesión dedicada
@@ -121,7 +126,7 @@ BG-02 y BG-03 fueron descartados (⊘ N/A para edge-tooling).
 **C. Crear `template-ai-app`** (cuando ≥2 apps pidan el template)
 
 - Trigger claro: harvest o dashboard pide arrancar app nueva siguiendo el patrón
-- Crear `atlax-360-ai-suite/template-ai-app` con workflows CI/CD, CLAUDE.md heredable, `@atlax/auth`
+- Crear `atlax-360-ai-suite/template-ai-app` con workflows CI/CD, CLAUDE.md heredable, `@atlax/auth` pre-cableado (ver ADR-0012 §Reactivation criteria #3 — es uno de los triggers para reactivar la extracción)
 
 ---
 
