@@ -10,6 +10,25 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [v0.6] — 2026-05-11
+
+### Added
+
+- D-012 nueva: `@atlax/auth` postponed — cada app mantiene su propia implementación de auth
+  hasta que se cumplan los criterios de reactivación documentados en ADR-0012.
+- ADR-0012: auditoría de 4 proyectos (Kairos, Orvian, Harvest, atlax-claude-dashboard),
+  3 razones del defer, 4 criterios de reactivación explícitos.
+
+### Changed
+
+- Header del SPEC bumpeado de v0.5 a v0.6; tabla changelog y §10 catálogo actualizados con
+  D-012.
+
+### Notes
+
+- Minor version: nueva decisión D-012 catalogada.
+- Reversible: reabrir mediante ADR-0013+ con `Supersedes: ADR-0012`.
+
 ## [v0.5] — 2026-05-11
 
 ### Added
@@ -113,7 +132,8 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ---
 
-[Unreleased]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.5...HEAD
+[Unreleased]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.6...HEAD
+[v0.6]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.5...v0.6
 [v0.5]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.4.1...v0.5
 [v0.4.1]: https://github.com/atlax-360-ai-suite/ai-suite-platform/compare/v0.4.0...v0.4.1
 [v0.4.0]: https://github.com/atlax-360-ai-suite/ai-suite-platform/releases/tag/v0.4.0

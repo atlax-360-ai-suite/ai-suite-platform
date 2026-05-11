@@ -17,6 +17,7 @@ Architectural Decision Records (formato [Michael Nygard](https://cognitect.com/b
 | [0009](./0009-dominio-atlax360-ai-canonico.md)    | `atlax360.ai` como dominio canónico (no `atlax.ai`)            | Accepted                 | D-009      | 2026-05-09 |
 | [0010](./0010-repo-dedicado-ai-suite-platform.md) | Repo dedicado `atlax-360-ai-suite/ai-suite-platform` como home | Accepted                 | D-010      | 2026-05-10 |
 | [0011](./0011-email-transaccional-interno.md)     | Email transaccional interno vía Gmail API + Vercel OIDC + WIF  | Proposed                 | D-011      | 2026-05-11 |
+| [0012](./0012-atlax-auth-postponed.md)            | `@atlax/auth` postponed (insufficient consumer overlap)        | Proposed                 | D-012      | 2026-05-11 |
 
 ## Formato canónico (Michael Nygard)
 

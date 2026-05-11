@@ -1,7 +1,7 @@
 # Atlax 360 AI Suite — Shared Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![Version](https://img.shields.io/badge/SPEC-v0.5-brightgreen.svg)](./docs/SPEC.md)
+[![Version](https://img.shields.io/badge/SPEC-v0.6-brightgreen.svg)](./docs/SPEC.md)
 [![Status](https://img.shields.io/badge/status-Accepted-success.svg)](./docs/SPEC.md)
 
 Especificación canónica del patrón de plataforma compartida para la categoría de aplicaciones **Atlax 360 AI Suite** — apps Atlax que integran IA agéntica.
@@ -10,8 +10,8 @@ Especificación canónica del patrón de plataforma compartida para la categorí
 
 | Fichero                                                        | Propósito                                                                  |
 | -------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [`docs/SPEC.md`](./docs/SPEC.md)                               | Especificación completa v0.5 — 5 capas, invariantes, decisiones, roadmap   |
-| [`docs/adr/`](./docs/adr/)                                     | ADRs Michael Nygard formalizando las decisiones D-001..D-011               |
+| [`docs/SPEC.md`](./docs/SPEC.md)                               | Especificación completa v0.6 — 5 capas, invariantes, decisiones, roadmap   |
+| [`docs/adr/`](./docs/adr/)                                     | ADRs Michael Nygard formalizando las decisiones D-001..D-012               |
 | [`docs/HANDOFF-current.md`](./docs/HANDOFF-current.md)         | Estado actual: adopciones por proyecto, pendientes, decisiones catalogadas |
 | [`docs/PROMPT-next-session.md`](./docs/PROMPT-next-session.md) | Prompt de arranque para sesiones dedicadas a este repo                     |
 

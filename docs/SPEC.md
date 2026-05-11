@@ -1,6 +1,6 @@
 # Atlax 360 AI Suite — Patrón "Shared Platform"
 
-- **Status**: Accepted v0.5
+- **Status**: Accepted v0.6
 - **Owner**: jgcalvo@atlax360.com
 - **Date**: 2026-05-09 | **Última revisión**: 2026-05-11
 - **Scope**: cross-project (`atlax-ai`)
@@ -18,6 +18,7 @@
 | v0.4    | 2026-05-10 | Movido a repo dedicado `atlax-360-ai-suite/ai-suite-platform`. Ya no es host transitorio en Kairos. §14 actualizado. |
 | v0.4.1  | 2026-05-11 | ADRs Michael Nygard ADR-0001..ADR-0010 formalizando D-001..D-010 en `docs/adr/`. §10 con columna ADR.                |
 | v0.5    | 2026-05-11 | D-011 nueva: email transaccional interno vía Gmail API + Vercel OIDC + WIF + DWD. §9.6 nueva. ADR-0011.              |
+| v0.6    | 2026-05-11 | D-012 nueva: `@atlax/auth` postponed (insufficient consumer overlap). ADR-0012.                                      |
 
 ---
 
@@ -400,6 +401,7 @@ Cada decisión arquitectónica relevante de la suite va con un ID `D-XXX` y un A
 | D-009 | `atlax360.ai` es el dominio canónico de la suite AI; `atlax.ai` no pertenece al grupo | Accepted (v0.3)          | 2026-05-09 | [ADR-0009](./adr/0009-dominio-atlax360-ai-canonico.md)    |
 | D-010 | Repo dedicado `atlax-360-ai-suite/ai-suite-platform` como home del doc canónico       | Accepted                 | 2026-05-10 | [ADR-0010](./adr/0010-repo-dedicado-ai-suite-platform.md) |
 | D-011 | Email transaccional interno vía Gmail API + Vercel OIDC + WIF + DWD (no SendGrid)     | Proposed                 | 2026-05-11 | [ADR-0011](./adr/0011-email-transaccional-interno.md)     |
+| D-012 | `@atlax/auth` postponed — cada app mantiene su auth hasta criterios de reactivación   | Proposed                 | 2026-05-11 | [ADR-0012](./adr/0012-atlax-auth-postponed.md)            |
 
 ## 11. Estado actual de adopción (snapshot 2026-05-10)
 
@@ -477,5 +479,5 @@ Cada proyecto debe completar/corregir su fila al validar este documento.
 
 ---
 
-**Versión**: v0.4.1 — ADRs Michael Nygard formalizando D-001..D-010 (2026-05-11)
+**Versión**: v0.6 — D-012 `@atlax/auth` postponed (2026-05-11)
 **Próxima revisión**: tras feedback de harvest, atlax-claude-dashboard y atlax-observatorios
