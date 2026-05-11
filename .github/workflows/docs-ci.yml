@@ -6,7 +6,7 @@ on:
       - "docs/**"
       - "*.md"
       - ".markdownlint.json"
-      - ".github/link-check-config.json"
+      - ".github/lychee.toml"
   push:
     branches:
       - main
@@ -38,7 +38,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: >
-            --config .github/link-check-config.json
+            --config .github/lychee.toml
             --verbose
             --no-progress
             "**/*.md"
