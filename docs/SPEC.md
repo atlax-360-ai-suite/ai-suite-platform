@@ -1,8 +1,8 @@
 # Atlax 360 AI Suite — Patrón "Shared Platform"
 
-- **Status**: Accepted v0.4
+- **Status**: Accepted v0.4.1
 - **Owner**: jgcalvo@atlax360.com
-- **Date**: 2026-05-09 | **Última revisión**: 2026-05-10
+- **Date**: 2026-05-09 | **Última revisión**: 2026-05-11
 - **Scope**: cross-project (`atlax-ai`)
 - **Aplica a**: kairos, atlax-claude-dashboard, atlax-langfuse-bridge, atlax-observatorios, harvest, futuras apps de la categoría
 - **Repo canónico**: [atlax-360-ai-suite/ai-suite-platform](https://github.com/atlax-360-ai-suite/ai-suite-platform)
@@ -16,6 +16,7 @@
 | v0.2    | 2026-05-09 | Consolidación con reporte langfuse-bridge: §3.1 categorías, leyenda §11, KP-01..KP-05 aplicados                      |
 | v0.3    | 2026-05-09 | Corrección dominio: `atlax360.ai` canónico (no `atlax.ai`). D-002 actualizada a Accepted. D-009 nueva.               |
 | v0.4    | 2026-05-10 | Movido a repo dedicado `atlax-360-ai-suite/ai-suite-platform`. Ya no es host transitorio en Kairos. §14 actualizado. |
+| v0.4.1  | 2026-05-11 | ADRs Michael Nygard ADR-0001..ADR-0010 formalizando D-001..D-010 en `docs/adr/`. §10 con columna ADR.                |
 
 ---
 
@@ -370,20 +371,20 @@ Estos invariantes aplican a **toda app** de la suite, sea cual sea el stack:
 
 ## 10. Decisiones tomadas (catálogo)
 
-Cada decisión arquitectónica relevante de la suite va con un ID `D-XXX`:
+Cada decisión arquitectónica relevante de la suite va con un ID `D-XXX` y un ADR Michael Nygard detallado en [`docs/adr/`](./adr/).
 
-| ID    | Decisión                                                                              | Status                   | Date       |
-| ----- | ------------------------------------------------------------------------------------- | ------------------------ | ---------- |
-| D-001 | Una sola Consent Screen "Atlax 360 AI Suite", N OAuth Clients                         | Proposed                 | 2026-05-09 |
-| D-002 | Subdominios canónicos `<app>.atlax360.ai` para PRO (dominio propio del grupo)         | Accepted                 | 2026-05-09 |
-| D-003 | Bun como runtime obligatorio                                                          | Accepted (cross-project) | 2026-04    |
-| D-004 | Conventional Commits + Squash merge                                                   | Accepted (cross-project) | 2026-04    |
-| D-005 | Workload Identity Federation GCP↔GitHub                                               | Proposed                 | 2026-05-09 |
-| D-006 | `vercel.ts` sobre `vercel.json` cuando exista config                                  | Proposed                 | 2026-05-09 |
-| D-007 | Vercel AI Gateway por defecto en lugar de provider-specific SDKs                      | Proposed                 | 2026-05-09 |
-| D-008 | NO Edge Functions, SÍ Fluid Compute                                                   | Accepted                 | 2026-02    |
-| D-009 | `atlax360.ai` es el dominio canónico de la suite AI; `atlax.ai` no pertenece al grupo | Accepted (v0.3)          | 2026-05-09 |
-| D-010 | Repo dedicado `atlax-360-ai-suite/ai-suite-platform` como home del doc canónico       | Accepted                 | 2026-05-10 |
+| ID    | Decisión                                                                              | Status                   | Date       | ADR                                                       |
+| ----- | ------------------------------------------------------------------------------------- | ------------------------ | ---------- | --------------------------------------------------------- |
+| D-001 | Una sola Consent Screen "Atlax 360 AI Suite", N OAuth Clients                         | Proposed                 | 2026-05-09 | [ADR-0001](./adr/0001-consent-screen-y-oauth-clients.md)  |
+| D-002 | Subdominios canónicos `<app>.atlax360.ai` para PRO (dominio propio del grupo)         | Accepted                 | 2026-05-09 | [ADR-0002](./adr/0002-subdominios-atlax360-ai.md)         |
+| D-003 | Bun como runtime obligatorio                                                          | Accepted (cross-project) | 2026-04    | [ADR-0003](./adr/0003-bun-runtime.md)                     |
+| D-004 | Conventional Commits + Squash merge                                                   | Accepted (cross-project) | 2026-04    | [ADR-0004](./adr/0004-conventional-commits-squash.md)     |
+| D-005 | Workload Identity Federation GCP↔GitHub                                               | Proposed                 | 2026-05-09 | [ADR-0005](./adr/0005-workload-identity-federation.md)    |
+| D-006 | `vercel.ts` sobre `vercel.json` cuando exista config                                  | Proposed                 | 2026-05-09 | [ADR-0006](./adr/0006-vercel-ts-sobre-vercel-json.md)     |
+| D-007 | Vercel AI Gateway por defecto en lugar de provider-specific SDKs                      | Proposed                 | 2026-05-09 | [ADR-0007](./adr/0007-vercel-ai-gateway.md)               |
+| D-008 | NO Edge Functions, SÍ Fluid Compute                                                   | Accepted                 | 2026-02    | [ADR-0008](./adr/0008-no-edge-functions-fluid-compute.md) |
+| D-009 | `atlax360.ai` es el dominio canónico de la suite AI; `atlax.ai` no pertenece al grupo | Accepted (v0.3)          | 2026-05-09 | [ADR-0009](./adr/0009-dominio-atlax360-ai-canonico.md)    |
+| D-010 | Repo dedicado `atlax-360-ai-suite/ai-suite-platform` como home del doc canónico       | Accepted                 | 2026-05-10 | [ADR-0010](./adr/0010-repo-dedicado-ai-suite-platform.md) |
 
 ## 11. Estado actual de adopción (snapshot 2026-05-10)
 
@@ -461,5 +462,5 @@ Cada proyecto debe completar/corregir su fila al validar este documento.
 
 ---
 
-**Versión**: v0.4 — movido a repo dedicado `atlax-360-ai-suite/ai-suite-platform` (2026-05-10)
+**Versión**: v0.4.1 — ADRs Michael Nygard formalizando D-001..D-010 (2026-05-11)
 **Próxima revisión**: tras feedback de harvest, atlax-claude-dashboard y atlax-observatorios
